@@ -109,7 +109,10 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"conatiner": "bronze",
-							"Folder": "cdc",
+							"Folder": {
+								"value": "@{pipeline().parameters.Table}_cdc",
+								"type": "Expression"
+							},
 							"File": "cdc.json"
 						}
 					},
@@ -243,7 +246,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"conatiner": "bronze",
-										"Folder": "cdc",
+										"Folder": "@{pipeline().parameters.Table}_cdc",
 										"File": "empty.json"
 									}
 								}
@@ -254,7 +257,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"conatiner": "bronze",
-										"Folder": "cdc",
+										"Folder": "@{pipeline().parameters.Table}_cdc",
 										"File": "cdc.json"
 									}
 								}
@@ -299,8 +302,7 @@
 				"defaultValue": "dbo"
 			},
 			"Table": {
-				"type": "string",
-				"defaultValue": "DimUser"
+				"type": "string"
 			},
 			"cdc_col": {
 				"type": "string",
