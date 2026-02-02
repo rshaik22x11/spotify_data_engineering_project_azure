@@ -1,0 +1,12 @@
+{
+	"name": "LS_DL_spotify",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://stspotify.dfs.core.windows.net/",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDkzODRFOUQ4LUJDOTQtNDc3MC1BREQ3LTRCRjlEQ0JFMTVBMl82NWU5ZjhhMy02MDBiLTQ2MzUtYTBlOS1hMmIyMmUzMDliMGIiDQp9"
+		}
+	}
+}
