@@ -180,10 +180,13 @@
 												"parameters": {
 													"container": "bronze",
 													"folder": {
-														"value": "@pipeline().parameters.Table",
+														"value": "@item().Table",
 														"type": "Expression"
 													},
-													"file": "@concat(pipeline().parameters.Table,'_',variables('current_time'))"
+													"file": {
+														"value": "@concat(item().Table,'_',variables('current_time'))",
+														"type": "Expression"
+													}
 												}
 											},
 											"enableLogging": false,
@@ -254,7 +257,7 @@
 												"parameters": {
 													"conatiner": "bronze",
 													"Folder": {
-														"value": "@{item().table}_cdc",
+														"value": "@{item().Table}_cdc",
 														"type": "Expression"
 													},
 													"File": "empty.json"
