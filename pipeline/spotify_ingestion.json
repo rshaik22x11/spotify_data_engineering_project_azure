@@ -31,7 +31,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "SELECT * FROM @{pipeline().parameters.Schema}.@{pipeline().parameters.Table} WHERE @{pipeline().parameters.cdc_col} > '\n@{if(empty(pipeline().parameters.from_date),activity('Lookup_cdc_last_time').output.value[0].cdc,pipeline().parameters.from_date)}'",
+							"value": "SELECT * FROM @{pipeline().parameters.Schema}.@{pipeline().parameters.Table} WHERE @{pipeline().parameters.cdc_col} > '@{if(empty(pipeline().parameters.from_date), activity('Lookup_cdc_last_time').output.value[0].cdc_timestamp, pipeline().parameters.from_date)}' ",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -284,7 +284,7 @@
 									{
 										"type": "Query",
 										"text": {
-											"value": "SELECT MAX(@{pipeline().parameters.cdc_col}) FROM @{pipeline().parameters.Schema}.@{pipeline().parameters.Table}",
+											"value": "SELECT MAX(@{pipeline().parameters.cdc_col}) AS max_cdc_value FROM @{pipeline().parameters.Schema}.@{pipeline().parameters.Table}   ",
 											"type": "Expression"
 										}
 									}
