@@ -305,7 +305,7 @@
 												{
 													"type": "Query",
 													"text": {
-														"value": "SELECT MAX(@{item().cdc_col}) FROM @{item().Schema}.@{item().Table}",
+														"value": "SELECT MAX(@{item().cdc_col}) as cdc FROM @{item().Schema}.@{item().Table}",
 														"type": "Expression"
 													}
 												}
